@@ -10,20 +10,18 @@ namespace HW_Shop
     public class Laptop : Device
     {
         // тип клавиатуры
-        private string keyboardType;
+        public string KeyboardType { get; set; }
 
         public Laptop(string title, string model, int amount, float price, string color, string keyboardType, float discount = 0) :
             base(title, model, amount, price, color, discount)
         {
-            TYPE_DEVICE = "Laptop";
+            TypeDevice = TypeDevice.LAPTOP;
             KeyboardType = keyboardType;
         }
 
-        public string KeyboardType { get; set; }
-
         public override string ToString()
         {
-            return base.ToString() + $"Keyboard type: {keyboardType}\n";
+            return base.ToString() + $"Keyboard type: {KeyboardType}\n";
         }
 
         public override void ShowInfo()

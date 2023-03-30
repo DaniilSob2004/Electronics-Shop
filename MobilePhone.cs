@@ -10,20 +10,18 @@ namespace HW_Shop
     public class MobilePhone : Device
     {
         // сенсорный телефон или нет
-        private bool isSensor;
+        public bool IsSensor { get; set; }
 
-        public MobilePhone(string title, string model, int amount, float price, string color, float discount = 0, bool isSensor = true) :
+        public MobilePhone(string title, string model, int amount, float price, string color, bool isSensor = true, float discount = 0) :
             base(title, model, amount, price, color, discount)
         {
-            TYPE_DEVICE = "MobilePhone";
+            TypeDevice = TypeDevice.PHONE;
             IsSensor = isSensor;
         }
 
-        public bool IsSensor { get; set; }
-
         public override string ToString()
         {
-            return base.ToString() + $"IsSensor: {(isSensor ? "Yes" : "No")}\n";
+            return base.ToString() + $"IsSensor: {(IsSensor ? "Yes" : "No")}\n";
         }
 
         public override void ShowInfo()

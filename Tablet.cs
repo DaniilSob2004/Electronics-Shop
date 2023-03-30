@@ -10,20 +10,18 @@ namespace HW_Shop
     public class Tablet : Device
     {
         // планшет раскладушка или нет
-        private bool isClamshell;
+        public bool IsClamshell { get; set; }
 
-        public Tablet(string title, string model, int amount, float price, string color, float discount = 0, bool isClamshell = false) :
+        public Tablet(string title, string model, int amount, float price, string color, bool isClamshell = false, float discount = 0) :
             base(title, model, amount, price, color, discount)
         {
-            TYPE_DEVICE = "Tablet";
+            TypeDevice = TypeDevice.TABLET;
             IsClamshell = isClamshell;
         }
 
-        public bool IsClamshell { get; set; }
-
         public override string ToString()
         {
-            return base.ToString() + $"IsClamshell: {(isClamshell ? "Yes" : "No")}\n";
+            return base.ToString() + $"IsClamshell: {(IsClamshell ? "Yes" : "No")}\n";
         }
 
         public override void ShowInfo()

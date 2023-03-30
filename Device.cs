@@ -7,9 +7,16 @@ using System.Threading.Tasks;
 
 namespace HW_Shop
 {
+    public enum TypeDevice
+    {
+        PHONE,
+        LAPTOP,
+        TABLET
+    }
+
     public abstract class Device
     {
-        protected string TYPE_DEVICE;
+        public TypeDevice TypeDevice { get; set; }
         private int amount;
         private float price;
         private float discount;
@@ -20,10 +27,9 @@ namespace HW_Shop
             Model = model;
             Amount = amount;
             Price = price;
+            Discount = discount;
             Color = color;
         }
-
-        public string TypeDevice { get; }
 
         public string Title { get; set; }
 
@@ -43,7 +49,7 @@ namespace HW_Shop
 
         public float Price
         {
-            get { return price; }
+            get { return price - (price * discount); }
             set
             {
                 if (value <= 0 || value > 1000000) throw new Exception("Price must be > 0 and <= 1 000 000");
